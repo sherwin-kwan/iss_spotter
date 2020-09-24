@@ -1,17 +1,14 @@
 const helpers = require('./iss.js');
+const fetchMyIP = helpers.fetchMyIP;
+const fetchCoordsByIP = helpers.fetchCoordsByIP;
+const fetchISSTimes = helpers.fetchISSTimes;
+const returnISSTimes = helpers.returnISSTimes;
 
-
-helpers.fetchMyIP((err, ipResults) => {
-  if (err) {
-    console.log(err.message);
-  } else {
-    helpers.fetchCoordsByIP(ipResults, (err, locationResults) => {
-      if (err) {
-        console.log(err.message);
-      } else {
-        console.log(locationResults);
-      }
-    });
-  }
+returnISSTimes(5, (err, humanReadableResults) => {
+  if (err) console.log(err);
+  else console.log(humanReadableResults);
 });
+
+
+
 
